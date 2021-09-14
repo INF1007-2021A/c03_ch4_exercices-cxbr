@@ -3,23 +3,36 @@
 
 
 def is_even_len(string: str) -> bool:
-    return False
+    parity = len(string) %2 == 0
+    return parity
 
 
 def remove_third_char(string: str) -> str:
-    return ""
+    third_char = string[:2] + string[3:]
+    return third_char
 
 
 def replace_char(string: str, old_char: str, new_char: str) -> str:
-    return ""
+    for i in range(len(string)): 
+        if string[i] == old_char:
+            string = string[:i] + new_char + string[i + 1:]
+    return string
 
 
 def get_nb_char(string: str, char: str) -> int:
-    return 0
+    nb_char = 0
+    for c in string:
+        if c == char:
+            nb_char += 1
+    return nb_char
 
 
 def get_nb_words(sentence: str) -> int:
-    return 0
+    nb_words = 1
+    for ch in sentence:
+        if ch == ' ':
+            nb_words += 1
+    return nb_words
 
 
 def main() -> None:
